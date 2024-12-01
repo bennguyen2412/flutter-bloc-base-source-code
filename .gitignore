@@ -68,3 +68,4 @@ doc/api/
 *.g.dart
 /ios/Podfile.lock
 pubspec.lock
+/.idea/

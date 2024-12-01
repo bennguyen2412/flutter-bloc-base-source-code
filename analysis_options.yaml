@@ -18,6 +18,8 @@ analyzer:
       strict-casts: true
    errors:
       invalid_annotation_target: ignore
+   plugins:
+      - custom_lint
 
 
 linter:

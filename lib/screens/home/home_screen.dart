@@ -10,8 +10,23 @@ import 'bloc/home_bloc.dart';
 import 'bloc/home_event.dart';
 import 'bloc/home_state.dart';
 
-final class HomeScreen extends StatelessWidget {
+final class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  final _textController = TextEditingController();
+  final _textController2 = TextEditingController();
+
+  @override
+  void dispose() {
+    _textController.dispose();
+    _textController2.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {

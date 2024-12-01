@@ -1,0 +1,13 @@
+# pubspec.yaml
+name: useful_lints
+version: 0.0.1
+description: A set of useful lints for Flutter projects.
+
+environment:
+  sdk: ^3.0.0
+
+dependencies:
+  analyzer:
+  analyzer_plugin:
+  custom_lint_builder: ^0.7.0
+  collection: ^1.18.0
