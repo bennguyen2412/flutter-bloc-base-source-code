@@ -41,6 +41,7 @@ dependencies:
 
   # Service Locator
   get_it: ^8.0.2
+  injectable: ^2.5.0
 
   # Network
   dio: ^5.0.0
@@ -84,6 +85,7 @@ dev_dependencies:
   freezed: ^2.3.2
   json_serializable: ^6.6.1
   custom_lint: ^0.7.0
+  injectable_generator: ^2.6.2
   useful_lints:
     path: ./packages/useful_lints
 

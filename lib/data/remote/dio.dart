@@ -1,29 +1,30 @@
 import 'package:dio/dio.dart';
+import 'package:injectable/injectable.dart';
 
+import '../../app_flavor.dart';
+import '../../common/extensions/duration.dart';
 import 'interceptors/authentication_interceptor.dart';
 
 class DioClient {
-  final String baseUrl;
-
-  DioClient({required this.baseUrl}) {
+  DioClient() {
     final baseOptions = createBaseOptions();
     authDio = Dio(baseOptions)..interceptors.add(AuthenticationInterceptor());
     dio = Dio(baseOptions);
   }
 
   BaseOptions createBaseOptions() {
+    final config = FlavorConfigurations.current;
     return BaseOptions(
-      baseUrl: baseUrl,
-      connectTimeout: const Duration(milliseconds: connectTimeout),
-      receiveTimeout: const Duration(milliseconds: receiveTimeout),
-      sendTimeout: const Duration(milliseconds: sendTimeout),
+      baseUrl: config.baseUrl,
+      connectTimeout: config.connectTimeout.milliseconds,
+      receiveTimeout: config.receiveTimeout.milliseconds,
+      sendTimeout: config.sendTimeout.milliseconds,
     );
   }
 
   late final Dio authDio;
   late final Dio dio;
-
-  static const connectTimeout = 30000;
-  static const receiveTimeout = 30000;
-  static const sendTimeout = 30000;
 }
+
+const authDio = Named('AuthDio');
+const nonAuthDio = Named('NonAuthDio');

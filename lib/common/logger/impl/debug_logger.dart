@@ -1,20 +1,17 @@
 import 'dart:io';
 
-import '../logger.dart';
+import 'package:injectable/injectable.dart';
 import 'package:logger/logger.dart' as l;
 
+import '../../di/get_it.dart';
+import '../logger.dart';
+
+@development
+@Singleton(as: Logger)
 final class DebugLogger implements Logger {
-  DebugLogger({
-    l.LogFilter? filter,
-    l.LogPrinter? printer,
-    l.LogOutput? output,
-    l.Level? level,
-  }) {
+  DebugLogger() {
     _logger = l.Logger(
-      level: level,
-      filter: filter,
-      output: output,
-      printer: printer ?? l.PrettyPrinter(colors: !Platform.isIOS),
+      printer: l.PrettyPrinter(colors: !Platform.isIOS),
     );
   }
 

@@ -1,4 +1,4 @@
-[![Dart](https://github.com/bennguyen2412/flutter-bloc-base-source-code/actions/workflows/dart.yml/badge.svg)](https://github.com/bennguyen2412/flutter-bloc-base-source-code/actions/workflows/dart.yml)
+[![Dart](https://github.com/tsnAnh/flutter-bloc-base-source-code/actions/workflows/dart.yml/badge.svg)](https://github.com/tsnAnh/flutter-bloc-base-source-code/actions/workflows/dart.yml)
 # flutter-bloc-base-source-code
 
 # Project using this template
@@ -7,7 +7,7 @@
 ## Setup
 ```sh
 flutter pub get
-flutter pub run build_runner build
+dart run build_runner build
 ```
 
 ## Run

@@ -1,15 +1,19 @@
+import 'package:injectable/injectable.dart';
+
 import '../../../../common/either.dart';
 import '../../../../common/error.dart';
 import '../../../../models/dtos/city.dart';
-import '../base/api.dart';
+import '../../dio.dart';
 import '../api_path.dart';
+import '../base/api.dart';
 
 abstract interface class ICityApi {
   Future<Either<NetworkError, List<City>>> getCities();
 }
 
+@LazySingleton(as: ICityApi)
 final class CityApi extends Api implements ICityApi {
-  const CityApi(super.dio);
+  const CityApi(@nonAuthDio super.dio);
 
   @override
   Future<Either<NetworkError, List<City>>> getCities() => withTimeoutRequest(

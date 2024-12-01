@@ -8,12 +8,13 @@ import 'package:path_provider/path_provider.dart';
 
 import 'app/app.dart';
 import 'app/app_bloc_observer.dart';
-import 'common/di/service_locator.dart';
-import 'common/error_screen.dart';
+import 'common/di/get_it.dart';
 import 'common/logger/logger.dart';
 
 Future<void> initializeFlutterApp() async {
-  final logger = ServiceLocator.inject<Logger>();
+  configureDependencies();
+  final logger = getIt<Logger>();
+  final observer = getIt<AppBlocObserver>();
   FlutterError.onError = (FlutterErrorDetails details) {
     logger(details.exceptionAsString(), stackTrace: details.stack);
   };
@@ -23,9 +24,8 @@ Future<void> initializeFlutterApp() async {
   };
 
   EquatableConfig.stringify = true;
-  Bloc.observer = AppBlocObserver();
+  Bloc.observer = observer;
 
-  ErrorWidget.builder = (details) => ErrorScreen(details: details);
   HydratedBloc.storage = await HydratedStorage.build(
     storageDirectory: await getApplicationSupportDirectory(),
   );

@@ -3,9 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../blocs/authentication/authentication_cubit.dart';
-import '../common/di/service_locator.dart';
 import '../common/utils/utils.dart';
-import '../domain/repositories/city_repository.dart';
 import '../l10n/l10n.dart';
 import '../navigation/navigation.dart';
 import '../theme/theme.dart';
@@ -15,21 +13,13 @@ final class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiRepositoryProvider(
+    return MultiBlocProvider(
       providers: [
-        RepositoryProvider<CityRepository>(
-          create: (BuildContext context) =>
-              ServiceLocator.inject<CityRepository>(),
+        BlocProvider(
+          create: (context) => AuthenticationCubit(),
         ),
       ],
-      child: MultiBlocProvider(
-        providers: [
-          BlocProvider(
-            create: (context) => AuthenticationCubit(),
-          ),
-        ],
-        child: const AppView(),
-      ),
+      child: const AppView(),
     );
   }
 }

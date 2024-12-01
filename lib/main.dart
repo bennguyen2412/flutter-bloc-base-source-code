@@ -5,6 +5,6 @@ import 'bootstrap.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  FlavorConfigurations.current = FlavorConfigurations.production;
+  FlavorConfigurations.current = FlavorConfigurations.dev;
   initializeFlutterApp();
 }

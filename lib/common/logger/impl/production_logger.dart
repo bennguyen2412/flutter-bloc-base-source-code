@@ -1,7 +1,12 @@
 import 'dart:developer';
 
+import 'package:injectable/injectable.dart';
+
+import '../../di/get_it.dart';
 import '../logger.dart';
 
+@production
+@Singleton(as: Logger)
 final class ProductionLogger implements Logger {
   @override
   void call(String message, {Object? error, StackTrace? stackTrace}) {

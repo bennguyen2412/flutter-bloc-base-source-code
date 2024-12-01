@@ -1,10 +1,12 @@
 import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:injectable/injectable.dart';
 
 import '../../../domain/repositories/city_repository.dart';
 import '../../../models/dtos/city.dart';
 
+@injectable
 final class HomeCubit extends Cubit<List<City>> {
   HomeCubit(this.repository) : super(/* initial state ==> */ []);
 

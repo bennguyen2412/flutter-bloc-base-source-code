@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../blocs/authentication/authentication_cubit.dart';
+import '../../common/di/get_it.dart';
 import '../../l10n/l10n.dart';
 import '../../models/dtos/city.dart';
 import '../../navigation/navigation.dart';
@@ -39,7 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             Expanded(
               child: BlocProvider<HomeBloc>(
-                create: (context) => HomeBloc(context.read()),
+                create: (context) => getIt<HomeBloc>(),
                 child: Center(
                   child: BlocBuilder<HomeBloc, HomeState>(
                     builder: (context, state) => _buildHome(context, state),

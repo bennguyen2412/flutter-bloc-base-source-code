@@ -2,9 +2,9 @@ import 'dart:async';
 
 import 'package:dio/dio.dart';
 
+import '../../../../app_flavor.dart';
 import '../../../../common/either.dart';
 import '../../../../common/error.dart';
-import '../../dio.dart';
 import '../../status_code.dart';
 
 abstract base class Api {
@@ -18,7 +18,9 @@ abstract base class Api {
       return await Either.tryCatch(
         (err) => mapErrorToNetworkError(err),
         () async => await request(),
-      ).timeout(const Duration(milliseconds: DioClient.connectTimeout));
+      ).timeout(
+        Duration(milliseconds: FlavorConfigurations.current.connectTimeout),
+      );
     } on TimeoutException catch (timeoutException) {
       return Left<NetworkError, T>(Timeout(exception: timeoutException));
     }
