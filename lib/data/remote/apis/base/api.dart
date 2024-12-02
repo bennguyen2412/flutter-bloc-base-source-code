@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:dio/dio.dart';
 
-import '../../../../app_flavor.dart';
+import '../../../../flavor_configurations.dart';
 import '../../../../common/either.dart';
 import '../../../../common/error.dart';
 import '../../status_code.dart';

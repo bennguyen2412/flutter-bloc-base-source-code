@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../app_flavor.dart';
+import '../../flavor_configurations.dart';
 import '../../data/remote/remote.dart';
 import 'get_it.config.dart';
 

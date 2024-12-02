@@ -69,3 +69,4 @@ doc/api/
 /ios/Podfile.lock
 pubspec.lock
 /.idea/
+!/packages/useful_lints/custom_lint.log

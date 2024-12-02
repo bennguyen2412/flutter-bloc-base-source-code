@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../app_flavor.dart';
+import '../../flavor_configurations.dart';
 import '../../common/extensions/duration.dart';
 import 'interceptors/authentication_interceptor.dart';
 

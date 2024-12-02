@@ -6,10 +6,10 @@ import 'package:flutter/material.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
 
-import 'app/app.dart';
-import 'app/app_bloc_observer.dart';
-import 'common/di/get_it.dart';
-import 'common/logger/logger.dart';
+import 'app.dart';
+import 'app_bloc_observer.dart';
+import '../common/di/get_it.dart';
+import '../common/logger/logger.dart';
 
 Future<void> initializeFlutterApp() async {
   configureDependencies();

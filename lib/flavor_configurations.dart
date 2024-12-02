@@ -1,7 +1,7 @@
 enum FlavorConfigurations {
-  dev(
+  development(
     baseUrl: 'https://631eb73e58a1c0fe9f562cec.mockapi.io/',
-    name: 'dev',
+    name: 'development',
   ),
   staging(
     baseUrl: 'https://631eb73e58a1c0fe9f562cec.mockapi.io/',
@@ -32,7 +32,7 @@ enum FlavorConfigurations {
   static const _defaultReceiveTimeout = 30000;
   static const _defaultSendTimeout = 30000;
 
-  static FlavorConfigurations _current = FlavorConfigurations.dev;
+  static FlavorConfigurations _current = FlavorConfigurations.development;
 
   static FlavorConfigurations get current {
     return _current;

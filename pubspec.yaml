@@ -55,6 +55,9 @@ dependencies:
   # Equatable
   equatable: ^2.0.5
 
+  dart3z:
+    path: ./packages/dart3z
+
   # endregion packages
 
   # The following adds the Cupertino Icons font to your application.
@@ -86,8 +89,7 @@ dev_dependencies:
   json_serializable: ^6.6.1
   custom_lint: ^0.7.0
   injectable_generator: ^2.6.2
-  useful_lints:
-    path: ./packages/useful_lints
+  useful_lints: ^0.0.1
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
