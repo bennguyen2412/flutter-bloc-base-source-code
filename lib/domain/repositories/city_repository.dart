@@ -1,7 +1,7 @@
-import '../../common/either.dart';
-import '../../common/error.dart';
+import 'package:dart3z/dartz.dart';
+
 import '../../models/dtos/city.dart';
 
 abstract class CityRepository {
-  Future<Either<DataSourceError, List<City>>> getCities();
+  Future<Option<List<City>>> getCities();
 }

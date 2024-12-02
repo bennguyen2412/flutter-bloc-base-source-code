@@ -55,8 +55,7 @@ dependencies:
   # Equatable
   equatable: ^2.0.5
 
-  dart3z:
-    path: ./packages/dart3z
+  dart3z: ^0.11.1
 
   # endregion packages
 

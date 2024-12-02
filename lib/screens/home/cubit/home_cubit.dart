@@ -14,11 +14,8 @@ final class HomeCubit extends Cubit<List<City>> {
 
   /// Functions contain async logics should return [Future] type
   Future<void> _fetchTexts() async {
-    final citiesEither = await repository.getCities();
-    citiesEither.fold(
-      ifLeft: (_) => emit([]),
-      ifRight: (cities) => emit(cities),
-    );
+    final citiesOption = await repository.getCities();
+    emit(citiesOption.getOrElse(() => []));
   }
 
   /// Cubit or Bloc should expose normal functions (functions not return a [Future])

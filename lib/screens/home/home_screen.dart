@@ -33,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(context.l10n.text_hello_world),
+        title: Text(context.l10n.helloWorld),
       ),
       body: SafeArea(
         child: Column(
@@ -69,7 +69,7 @@ class _HomeScreenState extends State<HomeScreen> {
     } else if (state is HomeInitial) {
       return ElevatedButton(
         onPressed: () => context.read<HomeBloc>().add(HomeEvent.loadCities),
-        child: Text(context.l10n.text_display_some_text),
+        child: Text(context.l10n.displaySomeText),
       );
     } else {
       // Loading

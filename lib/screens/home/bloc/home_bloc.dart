@@ -30,10 +30,7 @@ final class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
   Future<void> _handleLoadCitiesEvent(Emitter<HomeState> emit) async {
     emit(CitiesLoading());
-    final either = await repository.getCities();
-    either.fold(
-      ifLeft: (error) => emit(LoadCitiesError(error)),
-      ifRight: (cities) => emit(LoadCitiesSuccess(cities)),
-    );
+    final option = await repository.getCities();
+    emit(LoadCitiesSuccess(option.getOrElse(() => [])));
   }
 }

@@ -1,4 +1,4 @@
 {
-    "text_hello_world": "Hello World!",
-    "text_display_some_text": "Display some text!"
+    "helloWorld": "Hello World!",
+    "displaySomeText": "Display some text!"
 }

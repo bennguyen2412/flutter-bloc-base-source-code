@@ -1,7 +1,6 @@
+import 'package:dart3z/dartz.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../common/either.dart';
-import '../../common/error.dart';
 import '../../data/remote/remote.dart';
 import '../../models/dtos/city.dart';
 import '../domain.dart';
@@ -13,6 +12,5 @@ final class CityRepositoryImpl implements CityRepository {
   final ICityApi cityApi;
 
   @override
-  Future<Either<DataSourceError, List<City>>> getCities() =>
-      cityApi.getCities();
+  Future<Option<List<City>>> getCities() => cityApi.getCities();
 }

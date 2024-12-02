@@ -1,10 +1,10 @@
 import 'dart:async';
 
+import 'package:dart3z/dartz.dart';
 import 'package:dio/dio.dart';
 
-import '../../../../flavor_configurations.dart';
-import '../../../../common/either.dart';
 import '../../../../common/error.dart';
+import '../../../../flavor_configurations.dart';
 import '../../status_code.dart';
 
 abstract base class Api {
@@ -15,14 +15,24 @@ abstract base class Api {
   Future<Either<NetworkError, T>> withTimeoutRequest<T>(
       Future<T> Function() request) async {
     try {
-      return await Either.tryCatch(
-        (err) => mapErrorToNetworkError(err),
-        () async => await request(),
-      ).timeout(
+      final either = await catchAsync(() => request()).timeout(
         Duration(milliseconds: FlavorConfigurations.current.connectTimeout),
       );
+      return either.leftMap((err) => mapErrorToNetworkError(err));
     } on TimeoutException catch (timeoutException) {
       return Left<NetworkError, T>(Timeout(exception: timeoutException));
+    }
+  }
+
+  Future<Option<T>> withTimeoutRequestOption<T>(
+      Future<T> Function() request) async {
+    try {
+      final either = await catchAsync(() => request()).timeout(
+        Duration(milliseconds: FlavorConfigurations.current.connectTimeout),
+      );
+      return either.toOption();
+    } on TimeoutException {
+      return None();
     }
   }
 
